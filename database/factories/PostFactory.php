@@ -6,7 +6,6 @@ use Faker\Generator as Faker;
 
 use App\Models\User;
 use App\Models\Post;
-use Illuminate\Support\Str;
 
 
 if (isset($factory)) {

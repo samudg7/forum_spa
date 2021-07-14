@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
-    //protected $fillable=['title', 'slug', 'body', 'category_id', 'user_id'];
-    //per una questione di restrizioni su store QuestionController
+    //protected $fillable=['title', 'body', 'user_id'];
+    //per una questione di restrizioni su store PostController
     protected $guarded=[];
 
     public function user()
