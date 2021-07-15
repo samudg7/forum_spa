@@ -1,1 +1,1 @@
-Singla page application sviluppata in Laravel e Vue.js (con libreria vuetify).
+Single page application sviluppata in Laravel e Vue.js (con libreria vuetify).
