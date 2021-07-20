@@ -1,33 +1,34 @@
 <template>
-<v-container fluid grid-list-md>
+  <v-container fluid grid-list-md>
     <v-layout row wrap>
-        <v-flex xs8>
+      <v-flex xs8>
         <post></post>
-        </v-flex>
-        sidebar
+      </v-flex>
+      sidebar
     </v-layout>
-</v-container>
-
+  </v-container>
 </template>
 
 <script>
-import Post from './post'
+import Post from "./post";
 export default {
-    name: "forum",
-    data(){
-        return{
-            posts:{}
-        }
-    },
-    components:{Post},
-    created(){
-        axios.get('/api/post')
-        .then(res => this.posts = res.data.data)
-        .catch(error => console.log(error.response.data))
-    }
-}
+  name: "forum",
+  data() {
+    return {
+      posts: []
+    };
+  },
+  components: { Post },
+  created() {
+    axios
+      .get("/api/post")
+      .then(res => {
+        this.posts = res.data;
+        //console.log(res);
+      })
+      .catch(error => console.log(error.response.data));
+  }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

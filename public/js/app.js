@@ -1949,13 +1949,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "forum",
   data: function data() {
     return {
-      posts: {}
+      posts: []
     };
   },
   components: {
@@ -1964,8 +1963,8 @@ __webpack_require__.r(__webpack_exports__);
   created: function created() {
     var _this = this;
 
-    axios.get('/api/post').then(function (res) {
-      return _this.posts = res.data.data;
+    axios.get("/api/post").then(function (res) {
+      _this.posts = res.data; //console.log(res);
     })["catch"](function (error) {
       return console.log(error.response.data);
     });
@@ -20458,7 +20457,7 @@ var render = function() {
         { attrs: { row: "", wrap: "" } },
         [
           _c("v-flex", { attrs: { xs8: "" } }, [_c("post")], 1),
-          _vm._v("\n        sidebar\n    ")
+          _vm._v("\n    sidebar\n  ")
         ],
         1
       )
