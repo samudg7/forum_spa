@@ -1,45 +1,26 @@
 <template>
-    <v-card
-        class="mx-auto"
-        max-width="400"
-    >
+  <v-card class="mx-auto" max-width="400">
+    <v-card-title>{{ post.title }}</v-card-title>
 
-            <v-card-title>Titolo del post</v-card-title>
+    <v-card-text class="text--primary">
+      <div>{{ post.body }}</div>
+    </v-card-text>
+    <v-card-text>{{ post.user_id }}</v-card-text>
 
-        <v-card-subtitle class="pb-0">
-            Number 10
-        </v-card-subtitle>
-
-        <v-card-text class="text--primary">
-            <div>Whitehaven Beach</div>
-
-            <div>Whitsunday Island, Whitsunday Islands</div>
-        </v-card-text>
-         Body
-        <v-card-actions>
-            <v-btn
-                color="orange"
-                text
-            >
-                Share
-            </v-btn>
-
-            <v-btn
-                color="orange"
-                text
-            >
-                Explore
-            </v-btn>
-        </v-card-actions>
-    </v-card>
+    <v-card-text>{{ post.created_at }}</v-card-text>
+    <v-card-actions>
+      <v-btn color="orange" text>
+        Delete
+      </v-btn>
+    </v-card-actions>
+  </v-card>
 </template>
 
 <script>
 export default {
-    name: "post"
-}
+  props: ["post"]
+  //name: "data"
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

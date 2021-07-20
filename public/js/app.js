@@ -1958,14 +1958,15 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   components: {
-    Post: _post__WEBPACK_IMPORTED_MODULE_0__.default
+    post: _post__WEBPACK_IMPORTED_MODULE_0__.default
   },
   created: function created() {
     var _this = this;
 
     axios.get("/api/post").then(function (res) {
-      _this.posts = res.data; //console.log(res);
-    })["catch"](function (error) {
+      return _this.posts = res.data;
+    } //console.log(res);
+    )["catch"](function (error) {
       return console.log(error.response.data);
     });
   }
@@ -2002,26 +2003,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  name: "post"
+  props: ["post"] //name: "data"
+
 });
 
 /***/ }),
@@ -20456,7 +20440,14 @@ var render = function() {
         "v-layout",
         { attrs: { row: "", wrap: "" } },
         [
-          _c("v-flex", { attrs: { xs8: "" } }, [_c("post")], 1),
+          _c(
+            "v-flex",
+            { attrs: { xs8: "" } },
+            _vm._l(_vm.posts, function(post) {
+              return _c("post", { key: post.path, attrs: { post: post } })
+            }),
+            1
+          ),
           _vm._v("\n    sidebar\n  ")
         ],
         1
@@ -20492,27 +20483,21 @@ var render = function() {
     "v-card",
     { staticClass: "mx-auto", attrs: { "max-width": "400" } },
     [
-      _c("v-card-title", [_vm._v("Titolo del post")]),
-      _vm._v(" "),
-      _c("v-card-subtitle", { staticClass: "pb-0" }, [
-        _vm._v("\n        Number 10\n    ")
-      ]),
+      _c("v-card-title", [_vm._v(_vm._s(_vm.post.title))]),
       _vm._v(" "),
       _c("v-card-text", { staticClass: "text--primary" }, [
-        _c("div", [_vm._v("Whitehaven Beach")]),
-        _vm._v(" "),
-        _c("div", [_vm._v("Whitsunday Island, Whitsunday Islands")])
+        _c("div", [_vm._v(_vm._s(_vm.post.body))])
       ]),
-      _vm._v("\n     Body\n    "),
+      _vm._v(" "),
+      _c("v-card-text", [_vm._v(_vm._s(_vm.post.user_id))]),
+      _vm._v(" "),
+      _c("v-card-text", [_vm._v(_vm._s(_vm.post.created_at))]),
+      _vm._v(" "),
       _c(
         "v-card-actions",
         [
           _c("v-btn", { attrs: { color: "orange", text: "" } }, [
-            _vm._v("\n            Share\n        ")
-          ]),
-          _vm._v(" "),
-          _c("v-btn", { attrs: { color: "orange", text: "" } }, [
-            _vm._v("\n            Explore\n        ")
+            _vm._v("\n      Delete\n    ")
           ])
         ],
         1

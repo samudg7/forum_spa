@@ -2,7 +2,7 @@
   <v-container fluid grid-list-md>
     <v-layout row wrap>
       <v-flex xs8>
-        <post></post>
+        <post v-for="post in posts" :key="post.path" :post="post"> </post>
       </v-flex>
       sidebar
     </v-layout>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import Post from "./post";
+import post from "./post";
 export default {
   name: "forum",
   data() {
@@ -18,14 +18,14 @@ export default {
       posts: []
     };
   },
-  components: { Post },
+  components: { post },
   created() {
     axios
       .get("/api/post")
-      .then(res => {
-        this.posts = res.data;
+      .then(
+        res => (this.posts = res.data)
         //console.log(res);
-      })
+      )
       .catch(error => console.log(error.response.data));
   }
 };
