@@ -1996,6 +1996,11 @@ __webpack_require__.r(__webpack_exports__);
         return console.log(error.response.data);
       });
     }
+  },
+  computed: {
+    disabled: function disabled() {
+      return !(this.form.title && this.form.body && this.form.name);
+    }
   }
 });
 

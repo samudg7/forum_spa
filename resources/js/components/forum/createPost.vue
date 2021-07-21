@@ -49,6 +49,11 @@ export default {
         .then(res => this.$router.push(res.data))
         .catch(error => console.log(error.response.data));
     }
+  },
+  computed: {
+    disabled() {
+      return !(this.form.title && this.form.body && this.form.name);
+    }
   }
 };
 </script>
