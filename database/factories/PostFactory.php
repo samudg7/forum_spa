@@ -14,9 +14,10 @@ if (isset($factory)) {
         return [
             'title' => $title,
             'body' => $faker->text,
-            'user_id' => function () {
-                return User::all()->random();
-            }
+            'name' => $faker->name,
+            // 'user_id' => function () {
+            //     return User::all()->random();
+            // }
 
         ];
     });

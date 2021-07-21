@@ -1,0 +1,56 @@
+<template>
+  <v-container>
+    <v-form @submit.prevent="createPost">
+      <v-text-field
+        label="Title"
+        v-model="form.title"
+        type="text"
+        required
+      ></v-text-field>
+
+      <v-textarea
+        label="Body"
+        v-model="form.body"
+        type="text"
+        required
+        rows="10"
+        max-rows="15"
+      ></v-textarea>
+
+      <v-text-field
+        label="Author"
+        v-model="form.name"
+        type="text"
+        required
+      ></v-text-field>
+
+      <v-btn color="green" type="submit" :disabled="disabled">Create</v-btn>
+    </v-form>
+  </v-container>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      form: {
+        title: null,
+        body: null,
+        name: null
+      }
+    };
+  },
+  methods: {
+    createPost() {
+      axios
+        .post("/api/post", this.form)
+        // .then(res => this.console.log(res.data))
+
+        .then(res => this.$router.push(res.data))
+        .catch(error => console.log(error.response.data));
+    }
+  }
+};
+</script>
+
+<style></style>

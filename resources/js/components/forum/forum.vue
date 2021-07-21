@@ -4,7 +4,6 @@
       <v-flex xs8>
         <post v-for="post in posts" :key="post.path" :post="post"> </post>
       </v-flex>
-      sidebar
     </v-layout>
   </v-container>
 </template>

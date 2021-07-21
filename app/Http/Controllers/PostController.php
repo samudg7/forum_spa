@@ -28,7 +28,7 @@ class PostController extends Controller
     public function store(Request $request)
     {
         Post::create($request->all());
-        return response('Created', Response::HTTP_CREATED);
+        return response("Created", Response::HTTP_CREATED);
 
     }
 

@@ -5,7 +5,7 @@
     <v-card-text class="text--primary">
       <div>{{ post.body }}</div>
     </v-card-text>
-    <v-card-text>{{ post.user_id }}</v-card-text>
+    <v-card-text>{{ post.name }}</v-card-text>
 
     <v-card-text>{{ post.created_at }}</v-card-text>
     <v-card-actions>

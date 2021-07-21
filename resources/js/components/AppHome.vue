@@ -1,23 +1,23 @@
 <template>
-    <div>
-        <toolbar></toolbar>
-        <app-footer></app-footer>
-        <forum></forum>
-    </div>
+  <div>
+    <toolbar></toolbar>
+    <router-view></router-view>
+    <app-footer></app-footer>
+    <!-- <forum></forum> -->
+    <!-- <createPost></createPost> -->
+  </div>
 </template>
 
 <script>
-import Toolbar from './Toolbar'
-import AppFooter from './AppFooter'
-import Forum from './forum/forum'
-
+import Toolbar from "./Toolbar";
+import AppFooter from "./AppFooter";
+// import Forum from "./forum/forum";
+// import createPost from "./forum/createPost";
 
 export default {
-    name: "AppHome",
-    components: {Forum, Toolbar, AppFooter}
-}
+  name: "AppHome",
+  components: { Toolbar, AppFooter }
+};
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
