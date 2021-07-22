@@ -6,6 +6,7 @@
         v-model="form.title"
         type="text"
         required
+        color="#7CB342"
       ></v-text-field>
 
       <v-textarea
@@ -15,6 +16,7 @@
         required
         rows="10"
         max-rows="15"
+        color="#7CB342"
       ></v-textarea>
 
       <v-text-field
@@ -22,9 +24,12 @@
         v-model="form.name"
         type="text"
         required
+        color="#7CB342"
       ></v-text-field>
 
-      <v-btn color="green" type="submit" :disabled="disabled">Create</v-btn>
+      <v-btn elevation="3" color="#7CB342" type="submit" :disabled="disabled"
+        >Create</v-btn
+      >
     </v-form>
   </v-container>
 </template>
@@ -47,6 +52,8 @@ export default {
         // .then(res => this.console.log(res.data))
 
         .then(res => this.$router.push(res.data))
+        .then(res => this.$router.push("/forum"))
+
         .catch(error => console.log(error.response.data));
     }
   },

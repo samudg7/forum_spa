@@ -20,4 +20,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style>
+#app {
+  background-color: #e0e0e0;
+}
+</style>
