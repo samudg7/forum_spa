@@ -50,6 +50,7 @@ export default {
         .catch(error => console.log(error.response.data));
     }
   },
+  //disabilita button se i campi sono vuoti
   computed: {
     disabled() {
       return !(this.form.title && this.form.body && this.form.name);

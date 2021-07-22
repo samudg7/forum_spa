@@ -1997,6 +1997,7 @@ __webpack_require__.r(__webpack_exports__);
       });
     }
   },
+  //disabilita button se i campi sono vuoti
   computed: {
     disabled: function disabled() {
       return !(this.form.title && this.form.body && this.form.name);
@@ -2083,8 +2084,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
-  props: ["post"] //name: "data"
+  props: ["post"],
+  //name: "data"
+  methods: {
+    destroy: function destroy(id) {
+      var _this = this;
 
+      axios["delete"]("/api/post/" + id).then(function (res) {
+        return _this.$router.push("/createPost");
+      }).then(function (res) {
+        return _this.$router.push("/forum");
+      }) // .then(res => (this.posts = res.data))
+      ["catch"](function (error) {
+        return console.log(error.response);
+      });
+    }
+  }
 });
 
 /***/ }),
@@ -20765,9 +20780,18 @@ var render = function() {
       _c(
         "v-card-actions",
         [
-          _c("v-btn", { attrs: { color: "orange", text: "" } }, [
-            _vm._v("\n      Delete\n    ")
-          ])
+          _c(
+            "v-btn",
+            {
+              attrs: { color: "orange", text: "" },
+              on: {
+                click: function($event) {
+                  return _vm.destroy(_vm.post.id)
+                }
+              }
+            },
+            [_vm._v("\n      Delete\n    ")]
+          )
         ],
         1
       )

@@ -9,7 +9,7 @@
 
     <v-card-text>{{ post.created_at }}</v-card-text>
     <v-card-actions>
-      <v-btn color="orange" text>
+      <v-btn color="orange" text @click="destroy(post.id)">
         Delete
       </v-btn>
     </v-card-actions>
@@ -18,8 +18,19 @@
 
 <script>
 export default {
-  props: ["post"]
+  props: ["post"],
   //name: "data"
+  methods: {
+    destroy(id) {
+      axios
+        .delete("/api/post/" + id)
+        .then(res => this.$router.push("/createPost"))
+        .then(res => this.$router.push("/forum"))
+
+        // .then(res => (this.posts = res.data))
+        .catch(error => console.log(error.response));
+    }
+  }
 };
 </script>
 
