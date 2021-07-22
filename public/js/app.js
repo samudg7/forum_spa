@@ -2083,6 +2083,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   props: ["post"],
   //name: "data"
@@ -20587,14 +20626,14 @@ var render = function() {
           _c(
             "router-link",
             { attrs: { to: "/forum" } },
-            [_c("v-btn", { attrs: { text: "" } }, [_vm._v("Lista post")])],
+            [_c("v-btn", { attrs: { text: "" } }, [_vm._v("Post list")])],
             1
           ),
           _vm._v(" "),
           _c(
             "router-link",
             { attrs: { to: "/createPost" } },
-            [_c("v-btn", { attrs: { text: "" } }, [_vm._v("Aggiungi post")])],
+            [_c("v-btn", { attrs: { text: "" } }, [_vm._v("Add post")])],
             1
           )
         ],
@@ -20719,7 +20758,6 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "v-container",
-    { attrs: { fluid: "", "grid-list-md": "" } },
     [
       _c(
         "v-layout",
@@ -20764,37 +20802,97 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "v-card",
-    { staticClass: "mx-auto", attrs: { "max-width": "400" } },
+    "v-container",
+    { attrs: { "grid-list-sm": "" } },
     [
-      _c("v-card-title", [_vm._v(_vm._s(_vm.post.title))]),
+      _c("v-hover", {
+        scopedSlots: _vm._u([
+          {
+            key: "default",
+            fn: function(ref) {
+              var hover = ref.hover
+              return [
+                _c(
+                  "v-card",
+                  {
+                    staticClass: "mx-auto pa-6",
+                    attrs: {
+                      "max-width": "400",
+                      color: "#7CB342",
+                      elevation: hover ? 24 : 6
+                    }
+                  },
+                  [
+                    _c("v-card-title", [
+                      _vm._v("Title: " + _vm._s(_vm.post.title))
+                    ]),
+                    _vm._v(" "),
+                    _c("v-card-text", { staticClass: "text--primary" }, [
+                      _c("div", [
+                        _vm._v("Description: " + _vm._s(_vm.post.body))
+                      ])
+                    ]),
+                    _vm._v(" "),
+                    _c("v-card-text", [
+                      _vm._v("Author: " + _vm._s(_vm.post.name))
+                    ]),
+                    _vm._v(" "),
+                    _c("v-card-text", [
+                      _vm._v(
+                        "Data/time creation: " + _vm._s(_vm.post.created_at)
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "v-card-actions",
+                      [
+                        _c(
+                          "v-btn",
+                          {
+                            attrs: { rounded: "", color: "#FFFFFF" },
+                            on: {
+                              click: function($event) {
+                                return _vm.destroy(_vm.post.id)
+                              }
+                            }
+                          },
+                          [
+                            _c(
+                              "svg",
+                              {
+                                staticClass: "bi bi-trash-fill",
+                                attrs: {
+                                  xmlns: "http://www.w3.org/2000/svg",
+                                  width: "16",
+                                  height: "16",
+                                  fill: "currentColor",
+                                  viewBox: "0 0 16 16"
+                                }
+                              },
+                              [
+                                _c("path", {
+                                  attrs: {
+                                    d:
+                                      "M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z"
+                                  }
+                                })
+                              ]
+                            )
+                          ]
+                        )
+                      ],
+                      1
+                    )
+                  ],
+                  1
+                )
+              ]
+            }
+          }
+        ])
+      }),
       _vm._v(" "),
-      _c("v-card-text", { staticClass: "text--primary" }, [
-        _c("div", [_vm._v(_vm._s(_vm.post.body))])
-      ]),
-      _vm._v(" "),
-      _c("v-card-text", [_vm._v(_vm._s(_vm.post.name))]),
-      _vm._v(" "),
-      _c("v-card-text", [_vm._v(_vm._s(_vm.post.created_at))]),
-      _vm._v(" "),
-      _c(
-        "v-card-actions",
-        [
-          _c(
-            "v-btn",
-            {
-              attrs: { color: "orange", text: "" },
-              on: {
-                click: function($event) {
-                  return _vm.destroy(_vm.post.id)
-                }
-              }
-            },
-            [_vm._v("\n      Delete\n    ")]
-          )
-        ],
-        1
-      )
+      _c("div", { staticClass: "my-6" })
     ],
     1
   )
