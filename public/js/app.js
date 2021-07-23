@@ -1872,6 +1872,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _Toolbar__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Toolbar */ "./resources/js/components/Toolbar.vue");
 /* harmony import */ var _AppFooter__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AppFooter */ "./resources/js/components/AppFooter.vue");
+/* harmony import */ var _forum_post__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./forum/post */ "./resources/js/components/forum/post.vue");
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -1886,11 +1895,28 @@ __webpack_require__.r(__webpack_exports__);
  // import Forum from "./forum/forum";
 // import createPost from "./forum/createPost";
 
+
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "AppHome",
   components: {
     Toolbar: _Toolbar__WEBPACK_IMPORTED_MODULE_0__.default,
-    AppFooter: _AppFooter__WEBPACK_IMPORTED_MODULE_1__.default
+    AppFooter: _AppFooter__WEBPACK_IMPORTED_MODULE_1__.default,
+    post: _forum_post__WEBPACK_IMPORTED_MODULE_2__.default
+  },
+  data: function data() {
+    return {
+      posts: []
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    axios.get("/api/post").then(function (res) {
+      return _this.posts = res.data;
+    } //console.log(res);
+    )["catch"](function (error) {
+      return console.log(error.response.data);
+    });
   }
 });
 
@@ -1941,6 +1967,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+//
+//
+//
+//
+//
 //
 //
 //
@@ -20651,7 +20682,29 @@ var render = function() {
       _vm._v(" "),
       _c("router-view"),
       _vm._v(" "),
-      _c("app-footer")
+      _c("app-footer"),
+      _vm._v(" "),
+      _c(
+        "v-container",
+        [
+          _c(
+            "v-layout",
+            { attrs: { row: "", wrap: "" } },
+            [
+              _c(
+                "v-flex",
+                { attrs: { xs8: "" } },
+                _vm._l(_vm.posts, function(post) {
+                  return _c("post", { key: post.path, attrs: { post: post } })
+                }),
+                1
+              )
+            ],
+            1
+          )
+        ],
+        1
+      )
     ],
     1
   )
@@ -20814,6 +20867,7 @@ var render = function() {
           _c(
             "v-btn",
             {
+              staticStyle: { margin: "70px", "margin-left": "0px" },
               attrs: {
                 elevation: "3",
                 color: "#7CB342",

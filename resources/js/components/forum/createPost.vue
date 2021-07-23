@@ -27,7 +27,12 @@
         color="#7CB342"
       ></v-text-field>
 
-      <v-btn elevation="3" color="#7CB342" type="submit" :disabled="disabled"
+      <v-btn
+        elevation="3"
+        color="#7CB342"
+        style="margin: 70px; margin-left: 0px"
+        type="submit"
+        :disabled="disabled"
         >Create</v-btn
       >
     </v-form>
