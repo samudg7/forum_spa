@@ -10,14 +10,14 @@
           color="#FFFFFF"
           :elevation="hover ? 24 : 6"
         >
-          <v-card-title>Title: {{ post.title }}</v-card-title>
+          <v-card-title>Titolo: {{ post.title }}</v-card-title>
 
           <v-card-text class="text--primary">
-            <div>Description: {{ post.body }}</div>
+            <div>Descrizione: {{ post.body }}</div>
           </v-card-text>
-          <v-card-text>Author: {{ post.name }}</v-card-text>
+          <v-card-text>Autore: {{ post.name }}</v-card-text>
 
-          <v-card-text>Data/time creation: {{ post.created_at }}</v-card-text>
+          <v-card-text>Data/ora: {{ post.created_at }}</v-card-text>
           <v-card-actions>
             <v-fade-transition>
               <v-overlay v-if="hover" absolute color="#7CB342">

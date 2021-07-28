@@ -1,11 +1,21 @@
 <template>
-  <v-container>
+  <!-- <v-container>
     <v-layout row wrap>
-      <v-flex xs8>
-        <post v-for="post in posts" :key="post.path" :post="post"> </post>
-      </v-flex>
+      <v-flex xs8> -->
+  <div>
+    <div class="container row">
+      <post
+        v-for="post in posts"
+        :key="post.path"
+        :post="post"
+        class="ml-auto mr-auto"
+      >
+      </post>
+    </div>
+  </div>
+  <!-- </v-flex>
     </v-layout>
-  </v-container>
+  </v-container> -->
 </template>
 
 <script>

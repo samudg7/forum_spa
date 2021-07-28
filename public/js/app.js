@@ -2064,6 +2064,16 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "forum",
@@ -20646,7 +20656,7 @@ var render = function() {
     [
       _c("v-col", { staticClass: "text-center", attrs: { cols: "12" } }, [
         _vm._v("\n    " + _vm._s(new Date().getFullYear()) + " — "),
-        _c("strong", [_vm._v("forum_spa")])
+        _c("strong", [_vm._v("Sync Lab Test")])
       ])
     ],
     1
@@ -20736,7 +20746,9 @@ var render = function() {
     "v-toolbar",
     { attrs: { color: "#7CB342" } },
     [
-      _c("v-toolbar-title", [_vm._v("\n    forum_spa\n  ")]),
+      _c("v-toolbar-title", [
+        _vm._v("\n    Test Single Page Application Forum\n  ")
+      ]),
       _vm._v(" "),
       _c("v-spacer"),
       _vm._v(" "),
@@ -20751,7 +20763,7 @@ var render = function() {
             },
             [
               _c("v-btn", { attrs: { text: "", color: "#FFFFFF" } }, [
-                _vm._v("Post list")
+                _vm._v("Lista Post")
               ])
             ],
             1
@@ -20765,7 +20777,7 @@ var render = function() {
             },
             [
               _c("v-btn", { attrs: { text: "", color: "#FFFFFF" } }, [
-                _vm._v("Add post")
+                _vm._v("Aggiungi Post")
               ])
             ],
             1
@@ -20907,27 +20919,20 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c(
-    "v-container",
-    [
-      _c(
-        "v-layout",
-        { attrs: { row: "", wrap: "" } },
-        [
-          _c(
-            "v-flex",
-            { attrs: { xs8: "" } },
-            _vm._l(_vm.posts, function(post) {
-              return _c("post", { key: post.path, attrs: { post: post } })
-            }),
-            1
-          )
-        ],
-        1
-      )
-    ],
-    1
-  )
+  return _c("div", [
+    _c(
+      "div",
+      { staticClass: "container row" },
+      _vm._l(_vm.posts, function(post) {
+        return _c("post", {
+          key: post.path,
+          staticClass: "ml-auto mr-auto",
+          attrs: { post: post }
+        })
+      }),
+      1
+    )
+  ])
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -20975,23 +20980,21 @@ var render = function() {
                   },
                   [
                     _c("v-card-title", [
-                      _vm._v("Title: " + _vm._s(_vm.post.title))
+                      _vm._v("Titolo: " + _vm._s(_vm.post.title))
                     ]),
                     _vm._v(" "),
                     _c("v-card-text", { staticClass: "text--primary" }, [
                       _c("div", [
-                        _vm._v("Description: " + _vm._s(_vm.post.body))
+                        _vm._v("Descrizione: " + _vm._s(_vm.post.body))
                       ])
                     ]),
                     _vm._v(" "),
                     _c("v-card-text", [
-                      _vm._v("Author: " + _vm._s(_vm.post.name))
+                      _vm._v("Autore: " + _vm._s(_vm.post.name))
                     ]),
                     _vm._v(" "),
                     _c("v-card-text", [
-                      _vm._v(
-                        "Data/time creation: " + _vm._s(_vm.post.created_at)
-                      )
+                      _vm._v("Data/ora: " + _vm._s(_vm.post.created_at))
                     ]),
                     _vm._v(" "),
                     _c(
